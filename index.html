@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário, Amor!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #e60000;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        #game-container {
+            margin-top: 30px;
+        }
+
+        #present {
+            width: 400px;
+            cursor: pointer;
+        }
+
+        #audio-control {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Feliz Aniversário, Amor!</h1>
+    <p>Bendito o dia que você nasceu, minha princesa. Espero que hoje seja tão especial quanto você é para mim!</p>
+
+    <div id="game-container">
+        <p>Clica no presentão aí:</p>
+        <img id="present" src="img.png" alt="Presente Surpresa" onclick="foundPresent()">
+        <p id="game-result"></p>
+    </div>
+
+    <!-- Adicione a tag audio para a música de fundo -->
+    <audio id="audio-control" loop>
+        <source src="pastlives.mp3" type="audio/mp3">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <script>
+        let presentFound = false;
+
+        function foundPresent() {
+            if (!presentFound) {
+                document.getElementById("game-result").innerHTML = "Parabéns, você ganhou um vale rolê com seu amor hehe! 🎁";
+                document.getElementById("present").src = "vale.png"; 
+                presentFound = true;
+                
+                // Inicie a música quando o presente for encontrado
+                document.getElementById("audio-control").play();
+            } else {
+                document.getElementById("game-result").innerHTML = "Você já encontrou o presente, Pituca(te acalma que sexta tem bolo).";
+            }
+        }
+    </script>
+</body>
+</html>
